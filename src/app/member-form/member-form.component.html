@@ -1,0 +1,48 @@
+<h2>{{ IsFormInEditMode() ? 'Edit Member' : 'create new member'}}</h2>
+
+
+<p>This is a description /// This is a description /// This is a description /// This is a description /// This is a
+  description /// This is a description /// This is a description ///</p>
+
+<div class="container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form" class="example-form">
+    <div class="row">
+      <div class="col-25">
+        <label>CIN</label>
+      </div>
+      <div class="col-75">
+        <input type="text" formControlName="cin" placeholder="cin">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" formControlName="name" placeholder="name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>CV</label>
+      </div>
+      <div class="col-75">
+        <input type="text" formControlName="cv" placeholder="cv">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Type</label>
+      </div>
+      <div class="col-75">
+        <input type="text" formControlName="type" placeholder="type">
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <input mat-button type="submit" value="Submit">
+    </div>
+
+  </form>
+</div>

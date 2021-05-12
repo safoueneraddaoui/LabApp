@@ -1,0 +1,28 @@
+{
+  "members": [
+    {
+      "id": "01",
+      "cin": "99999999",
+      "name": "Safouene Raddaoui",
+      "type": "Student",
+      "cv": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf",
+      "dateCreated": "04/03/2021"
+    },
+    {
+      "id": "02",
+      "cin": "88888888",
+      "name": "Safouene Safouene",
+      "type": "Student",
+      "cv": "cv_mourad.pdf",
+      "dateCreated": "04/03/2021"
+    },
+    {
+      "id": "03",
+      "cin": "147852369",
+      "name": "Raddaoui Raddaoui",
+      "type": "Student",
+      "cv": "cv_salma.pdf",
+      "dateCreated": "04/03/2021"
+    }
+  ]
+}
