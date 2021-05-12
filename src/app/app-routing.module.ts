@@ -15,14 +15,14 @@ const routes: Routes = [
   },
   {
     path: 'members',
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
+    //canActivate: [AuthGuard],
+    //canActivateChild: [AuthGuard],
     children: [
       {
         path: '',
         pathMatch: 'full',
         component: MemberListComponent,
-        canActivateChild: [AuthGuard]
+        //canActivateChild: [AuthGuard]
       },
       {
         path: 'create',
@@ -44,13 +44,13 @@ const routes: Routes = [
     path: 'articles',
     pathMatch: 'full',
     component: ArticleListComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
     path: 'profil',
     pathMatch: 'full',
     component: ProfilComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   }
 
 ];
