@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    working_directory: ~/angular-circleci-surge
+    working_directory: ~/LabApp
     docker:
       - image: circleci/node:12-browsers
     steps:
