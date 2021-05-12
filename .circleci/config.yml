@@ -20,4 +20,7 @@ jobs:
       - deploy:
           command: |
             ./node_modules/.bin/surge --project ~/LabApp/dist/LabApp --LabApp.surge.sh
-
+workflows:
+  build-and-test:
+    jobs:
+      - build-and-test
