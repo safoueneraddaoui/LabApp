@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    working_directory: ~/LabApp
+    working_directory: ~/angular-circleci-surge
     docker:
       - image: circleci/node:12-browsers
     steps:
@@ -19,7 +19,7 @@ jobs:
       - run: npm run build
       - deploy:
           command: |
-            ./node_modules/.bin/surge --project ~/LabApp/dist/LabApp --LabApp.surge.sh
+            ./node_modules/.bin/surge --project ~/LabApp/dist/LabApp --domain LabApp.surge.sh
 workflows:
   build-and-test:
     jobs:
