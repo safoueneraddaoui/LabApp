@@ -1,0 +1,23 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build-and-test:
+    working_directory: ~/LabApp
+    docker:
+      - image: circleci/node:12-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: LabApp-{{ .Branch }}-{{ checksum "package-lock.json"}}
+      - run: npm install
+      - save_cache:
+          key: LabApp-{{ .Branch }}-{{ checksum "package-lock.json"}}
+          paths:
+            - "nodes_modules"
+      #- run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - run: npm run build
+      - deploy:
+          command: |
+            ./node_modules/.bin/surge --project ~/LabApp/dist/LabApp --LabApp.surge.sh
+
