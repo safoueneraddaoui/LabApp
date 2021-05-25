@@ -24,5 +24,23 @@
       "cv": "cv_salma.pdf",
       "dateCreated": "04/03/2021"
     }
+  ],
+  "articles": [
+    {
+      "id": 222,
+      "titre": " ACM...",
+      "Type": "Conf paper",
+      "dateApparition": "2020-11-02T18:09:00Z",
+      "lien": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf",
+      "sourcePdf": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf"
+    },
+    {
+      "id": 333,
+      "titre": " ACM...",
+      "Type": "Conf paper",
+      "dateApparition": "2020-11-02T18:09:00Z",
+      "lien": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf",
+      "sourcePdf": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf"
+    }
   ]
 }

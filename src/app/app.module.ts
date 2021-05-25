@@ -22,6 +22,7 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FirebaseModule } from "../firebase/Firebase.module";
+import { MatFormFieldControl } from '@angular/material/form-field';
 
 
 
@@ -31,7 +32,11 @@ import {ConfirmDialogComponent} from './@root/confirm-dialog/confirm-dialog.comp
 import { LoginComponent } from './login/login.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ProfilComponent } from './profil/profil.component';
-
+import { ArticleAffectComponent } from './article-affect/article-affect.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ArticleFormComponent } from './article-form/article-form.component';
+import { EventsComponent } from './events/events.component';
+//-------------------------------
 
 @NgModule({
   declarations: [
@@ -46,30 +51,35 @@ import { ProfilComponent } from './profil/profil.component';
     LoginComponent,
     ArticleListComponent,
     ProfilComponent,
+    ArticleAffectComponent,
+    ArticleFormComponent,
+    EventsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatDividerModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatListModule,
-    MatButtonModule,
-    FlexModule,
-    MatTableModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    MatIconModule,
-    MatDialogModule,
-    FirebaseModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatDividerModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatMenuModule,
+        MatListModule,
+        MatButtonModule,
+        FlexModule,
+        MatTableModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FlexLayoutModule,
+        MatIconModule,
+        MatDialogModule,
+        FirebaseModule,
+        MatButtonToggleModule,
+        MatInputModule
 
-  ],
+    ],
   exports:[
     MatDialogModule,
   ],
