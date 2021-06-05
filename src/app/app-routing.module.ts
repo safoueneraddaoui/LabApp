@@ -5,7 +5,11 @@ import {MemberFormComponent} from './member-form/member-form.component';
 import {LoginComponent} from './login/login.component';
 import { AuthGuard } from 'src/services/auth.guard';
 import {ArticleListComponent} from './article-list/article-list.component';
+import {ArticleAffectComponent} from './article-affect/article-affect.component';
+import {ArticleFormComponent} from './article-form/article-form.component';
+import { EventsComponent } from './events/events.component';
 import {ProfilComponent} from './profil/profil.component';
+import {ToolsComponent} from './tools/tools.component';
 
 const routes: Routes = [
   {
@@ -15,14 +19,14 @@ const routes: Routes = [
   },
   {
     path: 'members',
-    //canActivate: [AuthGuard],
-    //canActivateChild: [AuthGuard],
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: '',
         pathMatch: 'full',
         component: MemberListComponent,
-        //canActivateChild: [AuthGuard]
+        canActivateChild: [AuthGuard]
       },
       {
         path: 'create',
@@ -42,16 +46,47 @@ const routes: Routes = [
   },
   {
     path: 'articles',
+    canActivate: [AuthGuard],
+    children:[
+      {
+        path: '',
+        pathMatch: 'full',
+        component: ArticleListComponent,
+      },
+      {
+        path: ':id/affect',
+        pathMatch: 'full',
+        component: ArticleAffectComponent,
+      },
+      {
+        path: 'create',
+        pathMatch: 'full',
+        component: ArticleFormComponent
+      },
+      {
+        path: ':id/edit',
+        pathMatch: 'full',
+        component: ArticleFormComponent
+      },
+    ]
+  },
+  {
+    path: 'events',
     pathMatch: 'full',
-    component: ArticleListComponent,
+    component: EventsComponent,
     //canActivate: [AuthGuard],
   },
   {
     path: 'profil',
     pathMatch: 'full',
     component: ProfilComponent,
-    //canActivate: [AuthGuard],
-  }
+  },
+
+  {
+    path: 'tools',
+    pathMatch: 'full',
+    component: ToolsComponent,
+  },
 
 ];
 
