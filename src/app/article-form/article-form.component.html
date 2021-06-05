@@ -1,0 +1,56 @@
+<h2>{{ IsFormInEditMode() ? 'Edit Article' : 'create new article'}}</h2>
+
+
+<p>This is a description /// This is a description /// This is a description /// This is a description /// This is a
+  description /// This is a description /// This is a description ///</p>
+
+<div class="container">
+  <form (ngSubmit)="onSubmit()" *ngIf="form" [formGroup]="form" class="example-form">
+    <div class="row">
+      <div class="col-25">
+        <label>Titre</label>
+      </div>
+      <div class="col-75">
+        <input formControlName="titre" placeholder="titre" type="text">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Type</label>
+      </div>
+      <div class="col-75">
+        <input formControlName="type" placeholder="type" type="text">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Date Apparition</label>
+      </div>
+      <div class="col-75">
+        <input formControlName="dateApparition" placeholder="dateApparition" type="text">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Lien</label>
+      </div>
+      <div class="col-75">
+        <input formControlName="lien" placeholder="lien" type="text">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Source PDF</label>
+      </div>
+      <div class="col-75">
+        <input formControlName="sourcePdf" placeholder="sourcePdf" type="text">
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <input mat-button type="submit" value="Submit">
+    </div>
+
+  </form>
+</div>

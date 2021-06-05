@@ -1,0 +1,12 @@
+<mat-form-field appearance="fill">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(ngModel)]="selectedValue" name="member">
+    <mat-option *ngFor="let member of Members" [value]="member.name">
+      {{member.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<p>Selected food: {{selectedValue}}</p>
+<mat-button-toggle (click)="add()">Add</mat-button-toggle>
+
