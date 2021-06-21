@@ -39,10 +39,17 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ToolsComponent } from './tools/tools.component';
 //-------------------------------
+import {MatSelectModule} from '@angular/material/select';
+
+
 
 import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { EventFormComponent } from './event-form/event-form.component';
+import { ToolsAffectComponent } from './tools-affect/tools-affect.component';
+import { AddToolsComponent } from './add-tools/add-tools.component';
+import { ErrorComponent } from './error/error.component';
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -68,6 +75,10 @@ FullCalendarModule.registerPlugins([
     EtudiantComponent,
     ProfilComponent,
     ToolsComponent,
+    EventFormComponent,
+    ToolsAffectComponent,
+    AddToolsComponent,
+    ErrorComponent,
   ],
     imports: [
         BrowserModule,
@@ -92,8 +103,9 @@ FullCalendarModule.registerPlugins([
         FirebaseModule,
         MatButtonToggleModule,
         MatInputModule,
-        FullCalendarModule
-
+        FullCalendarModule,
+        MatSelectModule,
+        MatFormFieldModule
     ],
   exports:[
     MatDialogModule,

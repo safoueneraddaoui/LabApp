@@ -1,2 +1,7 @@
-<p>{{user.email}}</p>
-
+<div class="profile-card">
+  <div class="header">
+    <h2>{{user.displayName}}</h2>
+    <h4>{{user.email}}</h4>
+  </div>
+  <img [src]="user.photoURL">
+</div>

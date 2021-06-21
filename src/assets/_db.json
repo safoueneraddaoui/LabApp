@@ -59,5 +59,21 @@
       "date": "2020-11-02T18:03:00",
       "Source": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf"
     }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "Event",
+      "start": "2020-11-02T18:03:00",
+      "end": "2020-11-02T18:03:00",
+      "place": "Sfax"
+    },
+    {
+      "id": 2,
+      "name": "Event1",
+      "start": "2020-11-02T18:03:00",
+      "end": "2020-11-02T18:03:00",
+      "place": "Tunis"
+    }
   ]
 }

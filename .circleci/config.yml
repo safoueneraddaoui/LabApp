@@ -19,7 +19,13 @@ jobs:
       - run: npm run build
       - deploy:
           command: |
-            ./node_modules/.bin/surge --project ~/LabApp/dist/LabApp --domain LabApp.surge.sh
+            ./node_modules/.bin/surge --project ~/LabApp/dist/LabApp --domain
+
+
+
+
+
+
 workflows:
   build-and-test:
     jobs:

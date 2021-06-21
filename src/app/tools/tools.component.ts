@@ -4,6 +4,8 @@ import {Tools} from '../../models/Tools';
 import {MatDialog} from '@angular/material/dialog';
 import {ToolsService} from '../../services/tools.service';
 import {ConfirmDialogComponent} from '../@root/confirm-dialog/confirm-dialog.component';
+import {Article} from '../../models/Article';
+import {ArticleService} from '../../services/article.service';
 
 @Component({
   selector: 'app-tools',
@@ -12,23 +14,23 @@ import {ConfirmDialogComponent} from '../@root/confirm-dialog/confirm-dialog.com
 })
 export class ToolsComponent implements OnInit {
 
-  [x: string]: any;
+  displayedColumns: string[] = ['id', 'date', 'source', 'auteur', 'action'];
+  dataSource: Tools[];
 
-
-  displayedColumns: string[] = ['id', 'date', 'source'];
-  // @ts-ignore
-  dataSource: MatTableDataSource<Tools>;
-
-  constructor(private TS: ToolsService,
-              private dialog: MatDialog) {
-    this.dataSource = new MatTableDataSource<Tools>(this.TS.tab);
+  constructor(private ES: ToolsService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+    this.fetchDataSource();
+  }
+
+  fetchDataSource(): void {
+    // @ts-ignore
+    this.ES.GetAllTools().then(data => this.dataSource = data);
   }
 
   onRemoveAccount(id: string): void {
-
+    this.ES.RemoveToolsById(id).then(() => this.fetchDataSource());
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       height: '200px',
       width: '250px',
@@ -37,20 +39,10 @@ export class ToolsComponent implements OnInit {
       isDeleteConfirmed => {
         console.log('removing: ', isDeleteConfirmed);
         if (isDeleteConfirmed) {
-          this.MS.RemoveToolsById(id).then(() => this.fetchDataSource());
+          this.ES.RemoveToolsById(id).then(() => this.fetchDataSource());
         }
       }
-    );
-  }
-
-  fetchDataSource(): void {
-    this.MS.GetAllTools().then(data => this.dataSource.data = data);
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    )
   }
 
 }
-

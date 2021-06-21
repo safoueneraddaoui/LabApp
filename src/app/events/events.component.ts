@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/common';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
+import {EventService} from '../../services/event.service';
+import {ConfirmDialogComponent} from '../@root/confirm-dialog/confirm-dialog.component';
+import {Member} from '../../models/Member';
+import {MemberService} from '../../services/member.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-events',
@@ -8,29 +13,46 @@ import { CalendarOptions } from '@fullcalendar/common';
 })
 export class EventsComponent implements OnInit {
 
+  [x: string]: any;
 
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    weekends: false,
-    dateClick: this.handleDateClick.bind(this), // bind is important!
-    events: [
-      { title: 'event 1', date: '2019-04-01' },
-      { title: 'event 2', date: '2019-04-02' }
-    ]
-  };
+  displayedColumns: string[] = ['id','name', 'start', 'end', 'place', 'action'];
+  // @ts-ignore
+  dataSource: MatTableDataSource<Event>;
 
-  toggleWeekends() {
-    this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
+  constructor(
+    private ES: EventService,
+    private dialog: MatDialog
+  ) {
+    // @ts-ignore
+    this.dataSource = new MatTableDataSource<Member>(this.ES.tab);
   }
-
-
-  handleDateClick(arg) {
-    alert('date click! ' + arg.dateStr)
-  }
-
-  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onRemoveAccount(id: string): void {
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      height: '200px',
+      width: '250px',
+    });
+    dialogRef.afterClosed().pipe().subscribe(
+      isDeleteConfirmed => {
+        console.log('removing: ', isDeleteConfirmed);
+        if (isDeleteConfirmed) {
+          this.ES.RemoveEventById(id).then(() => this.fetchDataSource());
+        }
+      }
+    );
+  }
+
+  fetchDataSource(): void {
+    this.ES.GetAllEvents().then(data => this.dataSource.data = data);
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }
